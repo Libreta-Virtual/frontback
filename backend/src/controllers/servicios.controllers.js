@@ -1,4 +1,4 @@
-const {servicio, servicioID, createServicio, updateServicio, deleteServicio} = require('../models/servicios')
+const {servicio, servicioID, crearServicio, updateServicio, deleteServicio} = require('../models/servicios')
 
 module.exports.servicioController = async (req,res) => {
     try {
@@ -23,7 +23,7 @@ module.exports.servicioIdController = async(req,res) => {
 module.exports.createServicioController= async(req,res) => {
     const {hora, tren , socio, locomotora, vehiculos} = req.body
     try {
-        const service = await createServicio(hora, tren, socio, locomotora, vehiculos)
+        const service = await crearServicio(hora, tren, socio, locomotora, vehiculos)
         return res.send(service)
     } catch(err) {
         return res.send(err)

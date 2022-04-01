@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NuevoServicio() {
   const [formServicio, setFormServicio] = useState({
@@ -9,11 +10,13 @@ function NuevoServicio() {
     vehiculos: "",
   });
 
+  const navigate = useNavigate()
+
   const servicio = async (e) => {
     e.preventDefault();
     let { hora, tren, socio, locomotora, vehiculos } = formServicio;
     try {
-      const respuesta = await fetch("http://localhost:4000/crear", {
+      const respuesta = await fetch("http://localhost:4000/create", {
         method: "POST",
         body: JSON.stringify({ hora, tren, socio, locomotora, vehiculos }),
         headers: { "Content-Type": "application/json" },
@@ -21,6 +24,13 @@ function NuevoServicio() {
 
       const data = await respuesta.json();
       console.log(data);
+
+      if(data.lenght !== 0) {
+        console.log(data[0])
+        navigate("/historial")
+    }
+
+
     } catch (err) {
       console.error(err);
     }

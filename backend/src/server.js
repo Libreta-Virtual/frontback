@@ -26,8 +26,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 
-app.use("/", usuarioRutas,  )
-app.use("/servicios", servicioRutas)
+app.use("/", usuarioRutas, servicioRutas)
+//app.use("/servicios", servicioRutas)
 
 
 

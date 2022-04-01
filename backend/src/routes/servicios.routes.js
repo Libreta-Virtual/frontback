@@ -6,7 +6,7 @@ const { servicioIdController, servicioController, createServicioController, upda
 
 router.get("/", servicioController)
 router.get("/:id", servicioIdController)
-router.post("/", createServicioController)
+router.post("/create", createServicioController)
 router.put("/actualizar/:id", updateServicioController)
 router.delete("/:id", deleteServicioController)
 

@@ -17,9 +17,9 @@ module.exports.serviciosID = async (id) => {
     }
 } 
 
-module.exports.crearServicio = async (hora, tren, socio, locomotora, vehiculos) => {
+module.exports.crearServicio = async(hora, tren, socio, locomotora, vehiculos) => {
     const data = await db(`INSERT INTO servicios(hora, tren, socio, locomotora, vehiculos) VALUES (${hora}, ${tren}, "${socio}", ${locomotora}, ${vehiculos})`)
-
+    console.log(data)
     return {
         servicio: `Servicio creado con id ${data.id}`
     }
